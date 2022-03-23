@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Buoi4_PhanNguyen.Models.Sach>
+@{
+    ViewBag.Title = "listSach";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thông Tin Sách</h2>
+<p>
+    @Html.ActionLink("Thêm Mới","Create")
+</p>
+<table class="table">
+    <tr>
+        <th>Tên Sách</th>
+        <th>Thể Loại</th>
+        <th>Hình</th>
+        <th>Giá Bán</th>
+        <th>Ngày Cập Nhật</th>
+        <th>Số Lượng Tồn</th>
+        <th></th>
+    </tr>
+    @foreach (var ele in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(p => ele.tensach)</td>
+            <td>@Html.DisplayFor(p => ele.TheLoai.tenloai)</td>
+            <td><img src="@ele.hinh" alt="đây là hình" /></td>
+            <td>@String.Format("{0:0,0 VNĐ}",ele.giaban)</td>
+            <td>@Html.DisplayFor(p => ele.ngaycapnhat)</td>
+            <td>@Html.DisplayFor(p => ele.soluongton)</td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = ele.masach }) |
+                @Html.ActionLink("Chi Tiết", "Detail", new { id = ele.masach }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = ele.masach })
+            </td>
+        </tr>
+    }
+</table>
+

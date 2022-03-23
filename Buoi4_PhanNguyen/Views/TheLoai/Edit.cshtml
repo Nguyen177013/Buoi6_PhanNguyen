@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <div>
+            Tên Loại: @Html.TextBox("tenloai")<font color="red">@ViewData["Error"]</font>
+        </div>
+        <p>
+            <input type="submit" name="name" value="Save" />
+        </p>
+    </fieldset>
+}
+<div>
+    @Html.ActionLink("Quay Về", "Index");
+</div>

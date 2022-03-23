@@ -1,0 +1,67 @@
+﻿@model Buoi4_PhanNguyen.Models.Sach
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Sách</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Thể Loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheLoai.tenloai)
+        </dd>
+
+        <dt>
+            Tên Sách:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tensach)
+        </dd>
+
+        <dt>
+            Hình:
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.hinh)" alt="Alternate Text" />
+        </dd>
+
+        <dt>
+            Giá Bán:
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0 VNĐ}", Model.giaban)
+        </dd>
+
+        <dt>
+            Ngày Cập Nhật:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngaycapnhat)
+        </dd>
+
+        <dt>
+            Số Lượng Tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.soluongton)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Trở Về", "listSach") |
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.masach }) |
+</p>

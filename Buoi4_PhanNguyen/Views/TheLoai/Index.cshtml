@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Buoi4_PhanNguyen.Models.TheLoai>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<table border="1px">
+    <tr>
+        <th>Mã Thể Loại</th>
+        <th>Tên Thể Loại</th>
+        <th></th>
+    </tr>
+    @foreach (var ele in Model)
+    {
+        <tr>
+            <td>@ele.maloai</td>
+            <td>@ele.tenloai</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = ele.maloai }) |
+                @Html.ActionLink("Detail", "Detail", new { id = ele.maloai }) |
+                @Html.ActionLink("Delete", "Delete", new { id = ele.maloai })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Create", "Create", "TheLoai")
+
